@@ -4,7 +4,7 @@ CREATE TABLE CUSTOMER(
     Gender       VARCHAR(120) CONSTRAINT GenderType CHECK(Gender IN ('M', 'F')),
     eMail        VARCHAR(120),
     phoneNo      VARCHAR(120),
-    address      VARCHAR(120),
+    custAddress  VARCHAR(120),
     custPassword VARCHAR(120) NOT NULL,
     PRIMARY KEY (CustomerID));
 
@@ -18,10 +18,11 @@ CREATE TABLE ADMINISTRATOR(
 
 CREATE TABLE MODEL(
 	modelName     VARCHAR(120) NOT NULL CONSTRAINT modelNameType CHECK(modelName IN ('Light1', 'Light2', 'Safe1', 'Safe2', 'Safe3', 'SmartHome1')),
+    category      VARCHAR(120) NOT NULL CONSTRAINT categoryType CHECK(category IN ('Lights', 'Locks')),
     price         DECIMAL(6,2) NOT NULL,
     cost          DECIMAL(6,2) NOT NULL,
     warranty      SMALLINT,
-    PRIMARY KEY (modelName));
+    PRIMARY KEY (modelName, category));
     
 CREATE TABLE PRODUCT(
 	ProductID         VARCHAR(120) NOT NULL,
@@ -29,7 +30,7 @@ CREATE TABLE PRODUCT(
     purchaseStatus    VARCHAR(120) NOT NULL CONSTRAINT purchaseStatusType CHECK(purchaseStatus IN ('Sold', 'Unsold')),
     specificInfo      VARCHAR(120) NOT NULL,
     PRIMARY KEY (ProductID),
-    FOREIGN KEY (ModelName) REFERENCES MODEL(modelName) ON DELETE SET NULL
-														ON UPDATE CASCADE);
+    FOREIGN KEY (modelName, category) REFERENCES MODEL(modelName, category) ON DELETE SET NULL
+																			ON UPDATE CASCADE);
 
 	
