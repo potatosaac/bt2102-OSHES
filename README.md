@@ -6,3 +6,10 @@ OSHES System MySQL Database
 Done By:
 Loh Ching Hern
 Tan Isaac
+
+1. Database Creation DONE
+2. Table Creation IN PROGRESS
+3. Transactions
+- PAYMENT
+- PURCHASE
+- SERVICE REQUESTS
