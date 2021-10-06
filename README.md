@@ -9,7 +9,8 @@ Tan Isaac
 
 1. Database Creation DONE
 2. Table Creation IN PROGRESS
-3. Transactions
+3. Database Population from JSON/MongoDB?
+4. Transactions
 - PAYMENT
 - PURCHASE
 - SERVICE REQUESTS
