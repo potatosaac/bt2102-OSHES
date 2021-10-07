@@ -41,7 +41,7 @@ CREATE TABLE ITEMS(
     	Factory		VARCHAR(120) NOT NULL,
 	PowerSupply	VARCHAR(120) NOT NULL,  
 	PurchaseStatus	VARCHAR(120) NOT NULL CONSTRAINT purchaseStatusType CHECK(purchaseStatus IN ('Sold', 'Unsold')),
-	ProductionYear	SMALLINT NOT NULL,
+	ProductionYear	INT NOT NULL,
 	Model		VARCHAR(120) NOT NULL,	
 	ServiceStatus	VARCHAR(120),
     	PRIMARY KEY (ItemID),
