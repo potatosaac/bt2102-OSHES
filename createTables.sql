@@ -31,6 +31,30 @@ CREATE TABLE PRODUCT(
     specificInfo      VARCHAR(120) NOT NULL,
     PRIMARY KEY (ProductID),
     FOREIGN KEY (modelName, category) REFERENCES MODEL(modelName, category) ON DELETE SET NULL
-																			ON UPDATE CASCADE);
+																			
+																			 
+CREATE TABLE ITEMS(
+	ItemID		VARCHAR(120) NOT NULL,
+	Model		VARCHAR(120) NOT NULL CONSTRAINT ModelType CHECK(Model IN ('Light1', 'Light2', 'Safe1', 'Safe2', 'Safe3', 'SmartHome1')),
+    	Category	VARCHAR(120) NOT NULL CONSTRAINT CategoryType CHECK(Category IN ('Lights', 'Locks')),
+    	Color		VARCHAR(120) NOT NULL,
+    	Factory		VARCHAR(120) NOT NULL,
+	PowerSupply	VARCHAR(120) NOT NULL,  
+	PurchaseStatus	VARCHAR(120) NOT NULL CONSTRAINT purchaseStatusType CHECK(purchaseStatus IN ('Sold', 'Unsold')),
+	ProductionYear	SMALLINT NOT NULL,
+	Model		VARCHAR(120) NOT NULL,	
+	ServiceStatus	VARCHAR(120),
+    	PRIMARY KEY (ItemID),
+	FOREIGN KEY (Model));
+    
+CREATE TABLE PRODUCT(
+	ProductID	VARCHAR(120) NOT NULL,
+	Cost		INT NOT NULL,
+    	Model		VARCHAR(120) CONSTRAINT ModelType CHECK(Model IN ('Light1', 'Light2', 'Safe1', 'Safe2', 'Safe3', 'SmartHome1')),
+    	Price		INT NOT NULL, 
+    	Category	VARCHAR(120) NOT NULL,
+	Warrenty(months)SMALLINT NOT NULL,
+    	PRIMARY KEY (ProductID),
+    	FOREIGN KEY (Model) REFERENCES ITEMS(Model) ON DELETE SET NULL
 
-	
+																	ON UPDATE CASCADE);
