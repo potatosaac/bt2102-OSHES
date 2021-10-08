@@ -8,7 +8,7 @@ Loh Ching Hern
 Tan Isaac
 
 1. Database Creation DONE
-2. Table Creation IN PROGRESS
+2. Table Creation DONE
 3. Database Population from JSON/MongoDB?
 4. Transactions
 - PAYMENT
