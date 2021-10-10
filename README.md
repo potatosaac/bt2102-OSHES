@@ -9,7 +9,7 @@ Tan Isaac
 
 1. Database Creation DONE
 2. Table Creation DONE
-3. Database Population from JSON/MongoDB?
+3. Database Population from JSON DONE
 4. Transactions
 - PAYMENT
 - PURCHASE
