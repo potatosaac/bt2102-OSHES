@@ -61,6 +61,7 @@ CREATE TABLE PRODUCT(
 CREATE TABLE REQUEST(
 	RequestID       VARCHAR(120) NOT NULL,
 	CustomerID      VARCHAR(120) NOT NULL,
+	ItemID		VARCHAR(120),
 	requestStatus   VARCHAR(120) NOT NULL CONSTRAINT requestStatusType CHECK(requestStatus IN ("Submitted", "Submitted and Waiting for payment", "In Progress", "Approved", "Canceled", "Completed")),
 	serviceStatus   VARCHAR(120) NOT NULL CONSTRAINT serviceStatusType CHECK(serviceStatus IN ("Waiting for Approval", "In Progress", "Completed")),
 	feeCreationDate DATE(120) NOT NULL,
@@ -68,7 +69,7 @@ CREATE TABLE REQUEST(
 	payDate         DATE(120) NOT NULL,
 	AdminstratorID  VARCHAR(120),
 	PRIMARY KEY (RequestID, CustomerID),
-	FOREIGN KEY (ItemID) REFERENCES ITEM(ItemID) ON DELETE #Hern help here, idk if a request should be deleted if we delete the item, 
+	FOREIGN KEY (ItemID) REFERENCES ITEM(ItemID) ON DELETE SET NULL, 
 	FOREIGN KEY (AdministratorID) REFERENCES Administrator(AdministratorID) ON DELETE SET NULL
 										ON UPDATE CASCADE);
 	
