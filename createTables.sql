@@ -45,6 +45,7 @@ CREATE TABLE REQUEST(
 	requestStatus   VARCHAR(120) NOT NULL CONSTRAINT CHECK(requestStatus IN ("Submitted", "Submitted and Waiting for payment", "In Progress", "Approved", "Canceled", "Completed")),
 	serviceStatus   VARCHAR(120) NOT NULL CONSTRAINT CHECK(serviceStatus IN ("Waiting for Approval", "In Progress", "Completed")),
 	feeCreationDate DATE NOT NULL,
+	feeSettlementDate DATE NOT NULL,
 	requestDate     DATE NOT NULL,
 	payDate        	DATE NOT NULL,
 	AdministratorID  VARCHAR(120),
